@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./Note.css">
+    <title>Notes</title>
+    <link rel="stylesheet" href="./CSS/Note.css">
 </head>
 <body>
     <div class="main">
-        <div id="head"></div>
+        <div id="head">
+            <span>Welcome , </span>
+            <div id="bttn">
+                <button> Add + </button>
+                <button> Remove - </button>
+            </div>
+        </div>
+    </div>
+    <div class="login" style="visibility: hidden;">
+        <span>You need to login to use Notes</span >
+        <button onclick="window.location.href='Login.html'">Login</button>
     </div>
 </body>
+<script src="./JS/Notes.js"></script>
 </html>
