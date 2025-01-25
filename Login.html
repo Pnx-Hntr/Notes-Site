@@ -11,11 +11,20 @@
         <h1 class="head">NOTES</h1>
         <div id="login">
             <h2>LOGIN</h2>
-            <input name="Name" type="text" placeholder="Enter Name" class="tbox" autocomplete="true" required>
-            <input type="password" name="Pass" placeholder="Enter Password" class="tbox" required>
-            <button>Login</button> 
+            <input name="Name" type="text" placeholder="Enter Name" class="tbox" autocomplete="true" id="lname" required>
+            <input type="password" name="Pass" placeholder="Enter Password" class="tbox" id="lpass" required>
+            <button href="Note.html" type="submit" id="logsubmit">Login</button> 
             <a href="Register.html" class="reg">New here ? Register.</a>
         </div>
     </div>
 </body>
+<script>
+    const logSubmit = document.getElementById("logsubmit");
+
+logSubmit.addEventListener ("submit",function(){
+const name = document.getElementById("rname").value;
+const email = document.getElementById("rmail").value;
+const password = document.getElementById("rpass").value;
+});
+</script>
 </html>

@@ -11,12 +11,47 @@
         <h1 class="head">NOTES</h1>
         <div id="login">
             <h2>Register</h2>
-            <input name="Name" type="text" placeholder="Enter Name" class="tbox">
-            <input name="Email" type="email" placeholder="Enter Email" class="tbox">
-            <input type="password" name="Pass" placeholder="Enter Password" class="tbox">
-            <button>Register</button>
+            <input name="Name" type="text" placeholder="Enter Name" class="tbox" id="rname">
+            <input name="Email" type="email" placeholder="Enter Email" class="tbox" id="rmail">
+            <input type="password" name="Pass" placeholder="Enter Password" class="tbox" id="rpass">
+            <button type="submit" id="regsubmit">Register</button>
             <a href="Login.html" class="reg">Already got an account? Login.</a>
         </div>
     </div>
 </body>
+<script>
+  const registerForm = document.getElementById("regsubmit");
+
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("rname").value;
+    const email = document.getElementById("rmail").value;
+    const password = document.getElementById("rpass").value;
+
+    const response = await registerUser(name, email, password);
+    if (response.message) {
+      alert("Registration Successful! Proceed to Login.");
+      window.location.href = "login.html";
+    } else {
+      alert(`Error: ${response.error}`);
+    }
+
+    async function registerUser(name, email, password) {
+    try {
+      const response = await fetch("http://localhost:3200/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      return response.json();
+    } catch (error) {
+      console.error("Error:", error);
+      return { error: "Failed to connect to the server." };
+    }
+  }
+  }); 
+</script>
 </html>

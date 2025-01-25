@@ -8,7 +8,7 @@ body, html {
 }
 #head{
     background-color:rgb(196, 164, 132);
-    width: 100vw;
+    width: 99vw;
     height: 7vh;min-height: 55px;
     display: flex;
     align-items: center;
@@ -40,7 +40,7 @@ button:hover{
 }
 
 
-.login{
+.login , #todoForm{
     position:absolute;
     left: 50%;top: 50%;
     transform: translate(-50%,-50%);
@@ -53,6 +53,40 @@ button:hover{
     flex-direction: column;
     text-align: center;
     border: black 1px solid;
+    box-shadow: 4px 4px 19px rgba(0, 0, 0, 0.733);
+}
+#todoForm input,textarea{
+ width: 80%;
+ height: 15%;
+ text-align: center;
+ letter-spacing: 2px;
+ margin: 10px;
+}
+.noteCont{
+    position: absolute;
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    max-width: 99vw;min-width: 99vw;
+    min-height: 100vh;
+    background-color: rgba(128, 128, 128, 0.205);
+}
+#note{
+    flex: 0 1 calc(20% - 30px); 
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 20vh;
+    background-color: rgba(255, 94, 0, 0.432);
+    margin: 15px;
+    border: black 2px solid;
+}
+#note input,textarea{
+    max-width: 120px;
+    background-color: rgba(255, 255, 255, 0.541);
 }
 #blur{
     filter: blur(25px);
