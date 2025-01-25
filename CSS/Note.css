@@ -65,28 +65,44 @@ button:hover{
 .noteCont{
     position: absolute;
     display: flex;
-    justify-content:space-between;
+    justify-content:space-evenly;
     flex-wrap: wrap;
     margin: 0;
     max-width: 99vw;min-width: 99vw;
     min-height: 100vh;
-    background-color: rgba(128, 128, 128, 0.205);
+    background-color: rgba(128, 128, 128, 0.459);
 }
 #note{
     flex: 0 1 calc(20% - 30px); 
+    border-radius: 10px 35px 35px 35px;
     max-width: 250px;
     display: flex;
-    align-items: center;
+   align-items: center;
     flex-direction: column;
-    justify-content: center;
     height: 20vh;
-    background-color: rgba(255, 94, 0, 0.432);
-    margin: 15px;
+    background-color: rgba(255, 60, 0, 0.5);
+    margin: 50px;
+    padding: 5px;
     border: black 2px solid;
 }
-#note input,textarea{
-    max-width: 120px;
-    background-color: rgba(255, 255, 255, 0.541);
+#note.done{
+   animation: done 0.5s ease-in forwards;
+}
+@keyframes done {
+    0%{}
+    100%{ background-color: rgba(0, 128, 0, 0.514);}
+}
+#note input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-top: 15%;margin-bottom: 10%;
+    background-color: red !important;
+}
+#note span{
+    margin: 5px 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #1f1e1eef;
+    letter-spacing: 2px;
 }
 #blur{
     filter: blur(25px);

@@ -6,6 +6,23 @@ if (log){
 a.style.visibility = "visible";
 }}
 
+const checkboxes = document.querySelectorAll('#checkmark');
+
+// Add event listeners to checkboxes
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
+        const parentDiv = this.closest('#note'); // Find the parent div of the checkbox
+        if (this.checked) {
+            parentDiv.classList.add('done'); // Add 'checked' class when checkbox is checked
+        } else {
+            parentDiv.classList.remove('done'); // Remove 'checked' class when unchecked
+        }
+    });
+});
+
+
+
+
 async function fetchNotes(userId) {
     try {
         const response = await fetch(`http://localhost:3200/notes?userId=${userId}`, {

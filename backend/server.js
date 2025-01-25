@@ -9,12 +9,10 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-
-// Connect to the database
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root', // Change if your database uses a different user
-  password: '@1234567890', // Add your MySQL password
+  user: 'root',
+  password: '@1234567890', 
   database: 'notes_app'
 });
 
