@@ -1,3 +1,8 @@
+
+//THIS IS NOT THE ACTUAL SERVER
+// THIS IS AN EARLY BUILD AND WONT WORK WITH CURRENT ONE
+
+
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -97,3 +102,49 @@ app.post('/register', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+//pasted note.js
+
+async function fetchNotes(userId) {
+  try {
+      const response = await fetch(`http://localhost:3200/notes?userId=${userId}`, {
+          method: "GET",
+      });
+
+      return response.json();
+  } catch (error) {
+      console.error("Error:", error);
+      return { error: "Failed to fetch notes." };
+  }
+}
+
+async function addNote(userId, noteTitle, noteBody) {
+  try {
+      const response = await fetch("http://localhost:3200/notes", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userId, noteTitle, noteBody }),
+      });
+
+      return response.json();
+  } catch (error) {
+      console.error("Error:", error);
+      return { error: "Failed to add note." };
+  }
+}
+
+async function deleteNote(noteId) {
+  try {
+      const response = await fetch(`http://localhost:3200/notes/${noteId}`, {
+          method: "DELETE",
+      });
+
+      return response.json();
+  } catch (error) {
+      console.error("Error:", error);
+      return { error: "Failed to delete note." };
+  }
+}

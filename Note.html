@@ -11,21 +11,22 @@
         <div id="head">
             <span>Welcome , </span>
             <div id="bttn">
-                <button> Add + </button>
-                <button> Remove - </button>
+                <button id="addNote"> Add + </button>
+                <button id="removeNote"> Remove - </button>
             </div>
         </div>
     </div>
-    <div class="noteCont">
+    <div class="noteCont"><!-- Container for lists -->
         <div id="note">
-                <input type="checkbox" name="" id="checkmark">
+                <input type="checkbox" id="checkmark">
                 <span style="font-weight: bold;">To-do</span>
             <span>description</span>
         </div>
+        
     </div>
-    <div id="todoForm" style="visibility: hidden;">
-        <input type="text" id="taskTitle" placeholder="Enter task title">
-        <textarea id="taskBody" placeholder="Enter description"></textarea>
+    <div id="addWindow" style="visibility: hidden"><!-- Input Window -->
+        <input type="text" id="Title" placeholder="Enter title">
+        <textarea id="Body" placeholder="Enter description"></textarea>
         <button onclick="addTask()">Add Task</button>
     </div>
     <div class="login" style="visibility: hidden;">

@@ -40,7 +40,7 @@ button:hover{
 }
 
 
-.login , #todoForm{
+.login , #addWindow{
     position:absolute;
     left: 50%;top: 50%;
     transform: translate(-50%,-50%);
@@ -55,7 +55,7 @@ button:hover{
     border: black 1px solid;
     box-shadow: 4px 4px 19px rgba(0, 0, 0, 0.733);
 }
-#todoForm input,textarea{
+#addWindow input,textarea{
  width: 80%;
  height: 15%;
  text-align: center;
@@ -70,12 +70,12 @@ button:hover{
     margin: 0;
     max-width: 99vw;min-width: 99vw;
     min-height: 100vh;
-    background-color: rgba(128, 128, 128, 0.459);
+    background-color:rgba(104, 103, 102, 0.308);
 }
 #note{
     flex: 0 1 calc(20% - 30px); 
     border-radius: 10px 35px 35px 35px;
-    max-width: 250px;
+    max-width: 250px;min-width: 200px;
     display: flex;
    align-items: center;
     flex-direction: column;

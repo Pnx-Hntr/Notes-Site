@@ -11,7 +11,7 @@
         <h1 class="head">NOTES</h1>
         <div id="login">
             <h2>LOGIN</h2>
-            <input name="Name" type="text" placeholder="Enter Name" class="tbox" autocomplete="true" id="lname" required>
+            <input name="Mail" type="email" placeholder="Enter Mail" class="tbox" autocomplete="true" id="lmail" required>
             <input type="password" name="Pass" placeholder="Enter Password" class="tbox" id="lpass" required>
             <button href="Note.html" type="submit" id="logsubmit">Login</button> 
             <a href="Register.html" class="reg">New here ? Register.</a>
@@ -21,10 +21,34 @@
 <script>
     const logSubmit = document.getElementById("logsubmit");
 
-logSubmit.addEventListener ("submit",function(){
-const name = document.getElementById("rname").value;
-const email = document.getElementById("rmail").value;
-const password = document.getElementById("rpass").value;
-});
+    logSubmit.addEventListener("click", async function () {
+            const email = document.getElementById("lmail").value;
+            const password = document.getElementById("lpass").value;
+
+            if (!email || !password) {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:3200/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert("Login Successful! Redirecting to Notes.");
+                    window.location.href = "Note.html";
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An unexpected error occurred. Please try again.");
+            }
+        });
 </script>
 </html>
